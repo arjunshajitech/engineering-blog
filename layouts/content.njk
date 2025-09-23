@@ -1,0 +1,15 @@
+---
+layout: base.njk
+---
+
+<main class="main-content">
+  <h1 class="blog-title">{{ title }}</h1>
+
+   <div class="published-date">
+    Published on {{ date | date("MMMM d, yyyy") }}
+  </div>
+
+  <div class="blog-body">
+    {{ content | safe }}
+  </div>
+</main>
