@@ -23,6 +23,10 @@ body {
     padding: 15px 5px;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .navbar h1 {
@@ -247,6 +251,35 @@ body {
 .footer a:hover {
     color: #ffffff;
     text-decoration: underline;
+}
+
+button:hover {
+    border: 1px solid #fb7b4c !important;
+    color: #fff;
+}
+
+button {
+    border-radius: 2px;
+    background-color: #333;
+    border-color: #444;
+    border-width: 1.5px;
+    border: none;
+    color: #e4e4e4;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(.5em - 1px);
+    text-align: center;
+    white-space: nowrap;
+    max-height: 36px;
+    max-height: 36px;
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 /* Tablet Styles */
