@@ -27,4 +27,6 @@ Video packets, on the other hand, are `interdependent`.
 - The first frame (often called a `keyframe` or `I-frame`) contains all the information needed to start decoding
 - If that keyframe or any essential packets are lost, the video may freeze, stutter, or fail to play even if later packets arrive correctly
 
+In rare cases, if a video packet is small enough to fit within a single MTU (Maximum Transmission Unit), it can be independently decodable, similar to audio but this is uncommon in most real-world video streams.
+
 `There's a lot more to explore here, but this fundamental difference is essential to understanding how real-time communication works over IP networks.`
