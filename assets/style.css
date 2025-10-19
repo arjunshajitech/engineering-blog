@@ -9,12 +9,12 @@ body {
     font-style: normal;
     color: #d8d8d8;
     line-height: 1.6;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: rgb(23, 23, 23);
     font-size: 16px;
-    /* Base font size */
+    overflow: hidden;
 }
 .navbar {
     backdrop-filter: blur(10px);
@@ -25,19 +25,47 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
 }
 .navbar h1 {
     font-size: 1.5rem !important;
-    /* Force override */
     font-weight: 400 !important;
     margin: 0;
 }
 .main-content {
     flex: 1;
     max-width: 600px;
-    margin: 20px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 20px;
     width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar Styling */
+.main-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 129, 84, 0.5);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 129, 84, 0.8);
+}
+
+/* Firefox Scrollbar */
+.main-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 129, 84, 0.5) rgba(255, 255, 255, 0.05);
 }
 .site-title {
     cursor: pointer;
@@ -164,7 +192,6 @@ body {
     color: #fb7b4c !important;
     text-decoration: underline;
 }
-/* Image Styles */
 .blog-body img {
     max-width: 100%;
     height: auto;
@@ -173,7 +200,6 @@ body {
     border-radius: 6px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
-/* Keep your existing custom styles */
 .blog-body .body {
     display: block;
     margin-bottom: 20px;
@@ -214,8 +240,8 @@ body {
     backdrop-filter: blur(10px);
     padding: 15px 10px;
     text-align: center;
-    margin-top: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
 }
 .footer a {
     color: #d8d8d8 !important;
@@ -247,17 +273,16 @@ button {
     text-align: center;
     white-space: nowrap;
     max-height: 36px;
-    max-height: 36px;
-    svg {
-        width: 18px;
-        height: 18px;
-    }
 }
+button svg {
+    width: 18px;
+    height: 18px;
+}
+
 /* Tablet Styles */
 @media screen and (max-width: 768px) {
     .main-content {
-        margin: 15px auto;
-        padding: 0 15px;
+        padding: 15px;
     }
     .navbar h1 {
         font-size: 1.3rem !important;
@@ -301,6 +326,7 @@ button {
         margin-bottom: 25px;
     }
 }
+
 /* Mobile Styles */
 @media screen and (max-width: 480px) {
     body {
@@ -313,8 +339,7 @@ button {
         font-size: 1.2rem !important;
     }
     .main-content {
-        margin: 10px auto;
-        padding: 0 12px;
+        padding: 12px;
     }
     .blog-title {
         font-size: 1.4rem !important;
@@ -364,10 +389,11 @@ button {
         padding: 12px 8px;
     }
 }
+
 /* Extra small screens */
 @media screen and (max-width: 360px) {
     .main-content {
-        padding: 0 10px;
+        padding: 10px;
     }
     .blog-title {
         font-size: 1.25rem !important;
