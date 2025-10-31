@@ -10,9 +10,9 @@ You can think of **BGP (Border Gateway Protocol)** like the delivery partner in 
 
 We all know that the Internet is a massive network connecting countless computers around the world. Among these, there's a special kind called an **Autonomous System (AS)** that helps route data across the Internet.
 
-Not every computer or server connected to the Internet is an Autonomous System. To become one, a network must apply through a **Regional Internet Registry (RIR)**. Once approved, it receives a unique **Autonomous System Number (ASN)** from IANA for example, `AS299`. ASN are 16 bit numbers between 1 and 65534 and 32 bit numbers between 131072 and 4294967294.
+Not every computer or server connected to the Internet is an Autonomous System. To become one, a network must apply through a **Regional Internet Registry (RIR)**. Once approved, it receives a unique **Autonomous System Number (ASN)** from IANA for example, `AS299`. ASN are 16 bit numbers between 1 and 65534 and 32 bit numbers between 131072 and 4294967294. This number acts like an official ID, making the system globally recognizable.
 
-As of 2025, there are approximately **120,000 ASNs** in use worldwide (eBGP). This number acts like an official ID, making the system globally recognizable.
+As of 2025, there are approximately **120,000 ASNs** in use worldwide (eBGP). 
 
 Each AS can have multiple routers. Communication between routers within the same AS is called internal (iBGP), while communication between routers belonging to different ASes such as between two ISPs is called external (eBGP).
 
