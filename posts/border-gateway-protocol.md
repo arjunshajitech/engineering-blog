@@ -16,7 +16,7 @@ As of 2025, there are approximately **120,000 ASNs** in use worldwide (eBGP).
 
 Each AS can have multiple routers. Communication between routers within the same AS is called internal (iBGP), while communication between routers belonging to different ASes such as between two ISPs is called external (eBGP).
 
-Now, here’s where things get interesting. Many people think that when they click a YouTube thumbnail or hit ‘play’ on a video, packets travels directly from their device to YouTube’s server (after DNS).
+Now, here’s where things get interesting. For example, many people think that when they click a YouTube thumbnail or hit ‘play’ on a video, the packets travel directly from their device to YouTube’s server or a nearby cache server (after DNS resolution).
 
 Sounds simple, right? But in reality, that’s not how it works.
 
