@@ -40,7 +40,11 @@ When a read operation occurs, the database first reads the original tuple and th
 
 One of the main drawbacks of MVCC is that every update creates a new tuple version, which consumes additional storage. These old versions cannot be removed immediately because active transactions may still need to see them. As a result, the database must later clean up obsolete tuple versions to reclaim space.
 
-In PostgreSQL, this cleanup is handled by a background process called VACUUM.
+In PostgreSQL, this cleanup is handled by a background process called `VACUUM`.
+
+Another issue is `bloat` VACUUM cleans up dead rows, but it doesn’t return disk space to the OS.
+
+To reclaim and return such unused space, one must use `VACUUM FULL` or the `pg_repack` extension to rewrite the entire table to a new space with no wasted storage.
 
 Because of this design, MVCC generally favors read-heavy workloads. Reads are fast and non-blocking, but writes are more expensive due to tuple duplication, metadata management, and delayed cleanup.
 
