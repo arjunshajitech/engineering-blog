@@ -163,6 +163,7 @@ The certificate is just a file created and signed by the Certificate Authority (
 > Note:
 >
 > When we generate an SSL certificate technically a TLS certificate, but we still casually call it SSL.
+>
 > The process creates a public/private key pair on the server, and the server communicates with the CA.
 >
 > We commonly use tools like Certbot to generate certificates, but technically Certbot is just a client application that communicates between our server and the CA.
@@ -172,10 +173,17 @@ The certificate is just a file created and signed by the Certificate Authority (
 > * **DV (Domain Validation)** → The CA only checks: *Do you control this domain?*
 > * **OV (Organization Validation)** → The CA checks: *Do you control the domain, and is your organization legally registered?*
 > * **EV (Extended Validation)** → The CA performs the deepest verification, including legal existence, physical address, phone verification, and authorization checks.
-  >
-> For OV and EV certificates, human involvement is usually required. We typically generate and upload a CSR (Certificate Signing Request) to the CA portal. The CA then verifies ownership, often by asking us to add a TXT record at the domain level. After other verification, we can download the signed certificate manually, install it on the server, and configure it.
 >
-> In the case of DV certificates, only domain-level validation is required, so human involvement is usually unnecessary. Clients such as Certbot communicate with the CA using a protocol called ACME (Automatic Certificate Management Environment).
+> **For OV and EV certificates**, human involvement is usually required. We typically generate and upload a CSR (Certificate Signing Request) to the CA portal. 
+>
+> The CA then verifies ownership, often by asking us to add a TXT record (usually used for verification) at the domain level.
+>
+> After other verification, we can download the signed certificate manually, install it on the server, and configure it.
+>
+> **In the case of DV certificates**, only domain-level validation is required, so human involvement is usually unnecessary.
+>
+> Clients such as Certbot communicate with the CA using a protocol called ACME (Automatic Certificate Management Environment).
+>
 > Technically, this communication happens through APIs. Once the ACME client (Certbot) is installed and configured on the server, the CSR generation, domain validation, certificate signing, renewal, and certificate installation can all happen automatically through API-based communication.
 >
 > On Ubuntu, you can check the logs using:
