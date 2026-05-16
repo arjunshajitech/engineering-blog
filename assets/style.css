@@ -279,6 +279,23 @@ button svg {
     height: 18px;
 }
 
+.post-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+    color: #999;
+}
+.post-footer a {
+    color: #ff8154cf !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.post-footer a:hover {
+    color: #fb7b4c !important;
+    text-decoration: underline;
+}
+
 /* Tablet Styles */
 @media screen and (max-width: 768px) {
     .main-content {
