@@ -1,5 +1,5 @@
-/** Canonical site URL (no trailing slash). Override at build time: SITE_URL=https://yourdomain.com npm run build */
-const defaultUrl = "https://arjunshajitech.github.io/engineering-blog";
+/** Canonical site URL (no trailing slash). Override: SITE_URL=https://example.com npm run build */
+const defaultUrl = "https://blog.arjunshaji.me";
 
 module.exports = {
   name: "Zero fluff engineering",
