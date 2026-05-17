@@ -1,26 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title or site.title }}</title>
+  {% if page.url == '/' %}
+    {% set metaTitle = site.title %}
+  {% elif title %}
+    {% set metaTitle = title + ' | ' + site.name %}
+  {% else %}
+    {% set metaTitle = site.title %}
+  {% endif %}
+  {% set metaDesc = description or site.description %}
+  {% set canonical = page.url | absoluteUrl(site.url) %}
+  <title>{{ metaTitle }}</title>
+  <meta name="description" content="{{ metaDesc | escape }}">
+  <meta name="keywords" content="{{ site.keywords | escape }}">
+  <meta name="author" content="{{ site.author }}">
+  <link rel="canonical" href="{{ canonical }}">
+
+  <meta property="og:type" content="{% if isPost %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ metaTitle | escape }}">
+  <meta property="og:description" content="{{ metaDesc | escape }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:locale" content="en_US">
+  {% if ogImage %}<meta property="og:image" content="{{ ogImage | absoluteUrl(site.url) }}">{% endif %}
+
+  <meta name="twitter:card" content="{% if ogImage %}summary_large_image{% else %}summary{% endif %}">
+  <meta name="twitter:title" content="{{ metaTitle | escape }}">
+  <meta name="twitter:description" content="{{ metaDesc | escape }}">
+  {% if ogImage %}<meta name="twitter:image" content="{{ ogImage | absoluteUrl(site.url) }}">{% endif %}
+
   <link rel="stylesheet" href="/assets/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.name }} (Atom)" href="{{ '/feed.xml' | absoluteUrl(site.url) }}">
+
+  <script type="application/ld+json">
+  {% if isPost %}
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":{{ title | dump | safe }},"description":{{ metaDesc | dump | safe }},"datePublished":{{ (date | isoDateTime) | dump | safe }},"dateModified":{{ (date | isoDateTime) | dump | safe }},"author":{"@type":"Person","name":{{ site.author | dump | safe }}},"publisher":{"@type":"Organization","name":{{ site.name | dump | safe }}},"mainEntityOfPage":{"@type":"WebPage","@id":{{ canonical | dump | safe }}}}
+  {% elif page.url == '/' %}
+  {"@context":"https://schema.org","@type":"WebSite","name":{{ site.name | dump | safe }},"url":{{ canonical | dump | safe }},"description":{{ site.description | dump | safe }},"author":{"@type":"Person","name":{{ site.author | dump | safe }}}}
+  {% else %}
+  {"@context":"https://schema.org","@type":"WebPage","name":{{ (title or site.name) | dump | safe }},"description":{{ metaDesc | dump | safe }},"url":{{ canonical | dump | safe }}}
+  {% endif %}
+  </script>
 </head>
 <body>
   {% include "header.njk" %}
   {{ content | safe }}
   {% include "footer.njk" %}
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0K7MWGXNR2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0K7MWGXNR2');
+  </script>
 </body>
 </html>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0K7MWGXNR2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0K7MWGXNR2');
-</script>

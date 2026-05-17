@@ -1,0 +1,25 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.name | escape }}</title>
+  <subtitle>{{ site.description | escape }}</subtitle>
+  <link href="{{ '/feed.xml' | absoluteUrl(site.url) }}" rel="self"/>
+  <link href="{{ '/' | absoluteUrl(site.url) }}"/>
+  <updated>{% if (collections.posts | length) > 0 %}{{ collections.posts[0].date | isoDateTime }}{% else %}2020-01-01T00:00:00.000Z{% endif %}</updated>
+  <id>{{ '/' | absoluteUrl(site.url) }}</id>
+  <author>
+    <name>{{ site.author | escape }}</name>
+  </author>
+  {% for post in collections.posts %}
+  <entry>
+    <title>{{ post.data.title | escape }}</title>
+    <link href="{{ post.url | absoluteUrl(site.url) }}"/>
+    <updated>{{ post.date | isoDateTime }}</updated>
+    <id>{{ post.url | absoluteUrl(site.url) }}</id>
+    <summary type="text">{{ post.data.description | escape }}</summary>
+  </entry>
+  {% endfor %}
+</feed>

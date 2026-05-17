@@ -1,9 +1,13 @@
 <header>
-   <nav class="navbar">
-       <h1 class="site-title" onclick="window.location.href='/'">Zero fluff engineering</h1>
-       <button
-    onclick="window.open('https://github.com/arjunshajitech', '_blank')"
-  >
+   <nav class="navbar" aria-label="Main">
+       <a class="site-title" href="/">{{ site.name }}</a>
+       <a
+         class="icon-link"
+         href="https://github.com/arjunshajitech"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="GitHub"
+       >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       stroke-width="2"
@@ -21,11 +25,14 @@
       ></path>
       <path d="M9 18c-4.51 2-5-2-7-2"></path>
     </svg>
-  </button>
+  </a>
 
-  <!-- LinkedIn Button -->
-  <button
-    onclick="window.open('https://www.linkedin.com/in/arjunsulushaji/', '_blank')"
+  <a
+    class="icon-link"
+    href="https://www.linkedin.com/in/arjunsulushaji/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +52,6 @@
       <rect width="4" height="12" x="2" y="9" />
       <circle cx="4" cy="4" r="2" />
     </svg>
-  </button>
+  </a>
     </nav>
 </header>

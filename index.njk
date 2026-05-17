@@ -1,17 +1,15 @@
 ---
 layout: base.njk
-title: Home
+description: Engineering blogs and tech blogs with zero fluff — beginner-friendly deep dives on networking, TLS, DNS, databases, and how production systems work.
 ---
 
 <main class="main-content">
+  <h1 class="sr-only">All posts</h1>
   <ul class="blog-links">
-    {% for post in collections.all | reverse %}
-      {% if "/posts/" in post.inputPath %}
-        <li>
-          <a href="{{ post.url }}">{{ post.data.title }}</a>
-        </li>
-      {% endif %}
+    {% for post in collections.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+      </li>
     {% endfor %}
   </ul>
 </main>
-

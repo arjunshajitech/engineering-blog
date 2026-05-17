@@ -3,15 +3,17 @@ layout: base.njk
 ---
 
 <main class="main-content">
-  <h1 class="blog-title">{{ title }}</h1>
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <h1 class="blog-title" itemprop="headline">{{ title }}</h1>
 
-   <div class="published-date">
-    Published on {{ date | date("MMMM d, yyyy") }}
-  </div>
+    <div class="published-date">
+      <time datetime="{{ date | isoDate }}" itemprop="datePublished">{{ date | date("MMMM d, yyyy") }}</time>
+    </div>
 
-  <div class="blog-body">
-    {{ content | safe }}
-  </div>
+    <div class="blog-body" itemprop="articleBody">
+      {{ content | safe }}
+    </div>
+  </article>
 
   <div class="post-footer">
     If you have any concerns regarding the blog or anything is wrong please feel free to contact at <a href="mailto:arjunshajitech@gmail.com">arjunshajitech@gmail.com</a>
