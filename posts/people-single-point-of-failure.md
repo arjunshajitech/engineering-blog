@@ -12,6 +12,8 @@ But many teams have single points of failure that are not machines. They are peo
 
 It is a common pattern in many teams. Some people hold certain work only to themselves. They do not hand it over to anyone. Nobody else knows how it works. When that person is busy, on leave or sick, the work stops completely. And there is a quiet fear in the team: "What will happen if this person is not here?"
 
+![A relaxed character in sunglasses with a drink, while their phone keeps ringing.](/assets/people-spof-holiday.svg)
+
 I have always wondered why someone would do this. So I read what researchers and other engineers have written about it. Here is what I found.
 
 ## It has a name
@@ -33,6 +35,8 @@ This is the most common reason. The thought is simple: "If only I know this, the
 When everyone has to come to you, you feel important. Your phone rings. People wait for you. Managers know your name. For some people, this feeling is pleasant, and they do not want to lose it. Being needed starts to feel like being valuable.
 
 So yes, I think for some people it does feel good to be "the only one who knows." But being needed and being valuable are not the same thing.
+
+![A smug character proudly holds up a key, while two others look confused.](/assets/people-spof-keeper.svg)
 
 ### 3. The company rewards it
 
